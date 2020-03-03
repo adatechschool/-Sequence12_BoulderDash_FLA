@@ -1,92 +1,34 @@
-int colonnes = 5;
-int rangees = 5;
+Player joueur;
+Wall[] level = new Wall[16];
 
-int[][] grille;
-PImage imageJoueur; 
-
-int i = 0;
-int j = 0;
-
-int largeurColonne = width/colonnes;
-int hauteurRangee = height/rangees;
-
-int x = i * largeurColonne;
-int y = j * hauteurRangee;
-
-
+int taille = 60;
 
 void setup() {
+  PImage mur = loadImage("assets/wall_balec.png");
+  joueur = new Player(loadImage("assets/bulbizarre.png"));
+  for (int i = 0 ; i < 16 ; i++) {
+    level[i] = new Wall(new Position(int(random(-10, 10)), int(random(-10, 10))), mur);
+  }
   size(800, 800);
-  imageJoueur = loadImage("bulbizarre.png");
-  grille = new int[colonnes][rangees];
-  
-  print("La position du joueur est :", grille);
-
 }
 
-//void keyPressed() {
-    
-//  if (keyCode == RIGHT){x = x + 10;}
-//  if (keyCode == LEFT){x = x - 10; }
-//  if (keyCode == UP){y = y - 10;}
-//  if (keyCode == DOWN){y = y + 10;}
-//}
-
-
-
 void keyPressed() {
-  
- // VISITER CHAQUE CELLULE
- //for (int i = 0; x < width/colonnes; i++) {
- //  for (int j = 0; y < height/rangees; j++) {
-     
-     // S'ASSURER QU'ON RESTE DANS LES LIMITES
-     if (((x >= 0) && (x < width/colonnes)) && ((y >= 0) && (y < height/rangees))) {
-       
-        // VERIFIER LA CELLULE
-        if (!((x == i) && (y == j))) {  
+  Position mouvement = new Position(
+  int(keyCode == LEFT) - int(keyCode == RIGHT),
+  int(keyCode == UP) - int(keyCode == DOWN));
 
-          if (keyCode == RIGHT) {
-              x = x + 10;
-          }
-          
-          if (keyCode == LEFT) {
-              x = x - 10;
-          }
-          
-          if (keyCode == UP) {
-              y = y - 10;
-          }
-          
-          if (keyCode == DOWN) {
-              y = y + 10;
-          }
-        }  
-      } 
-//   } // End of j loop
-// } // End of i loop
-} // End of function
-
-
-//void bordTableau() {
-//  if (x > width-10 || x < 10)
-//  {
-//    if  (y > height-10 || y < 10) {
-      
-//    }
-//  }
-//}
-
+  for(Wall wall: level) {
+    wall.move(mouvement);
+  }
+}
 
 void draw() {
+  translate(width/2, height/2);
   background(1);
- 
-  for (i = 0; i < colonnes; i++) {
-    for(j = 0; j < rangees; j++) {
-       
-       //rect(x + 1, y + 1, largeurColonne - 2, hauteurRangee - 2);
-       image(imageJoueur, x , y, 60, 60);
-     //  print("La position du joueur est : ", grille);
-    }
+
+  joueur.draw();
+
+  for(Wall wall: level) {
+    wall.draw();
   }
 }
