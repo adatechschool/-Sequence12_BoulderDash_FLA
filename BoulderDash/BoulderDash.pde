@@ -1,14 +1,16 @@
 Player joueur;
-Wall[] level = new Wall[16];
+Wall[] niveau = new Wall[16];
 
 int taille = 60;
 
 void setup() {
-  PImage mur = loadImage("assets/wall_balec.png");
   joueur = new Player(loadImage("assets/bulbizarre.png"));
+
+  PImage sprite_mur = loadImage("assets/wall_balec.png");
   for (int i = 0 ; i < 16 ; i++) {
-    level[i] = new Wall(new Position(int(random(-10, 10)), int(random(-10, 10))), mur);
+    niveau[i] = new Wall(new Position(int(random(-10, 10)), int(random(-10, 10))), sprite_mur);
   }
+
   size(800, 800);
 }
 
@@ -17,7 +19,7 @@ void keyPressed() {
   int(keyCode == LEFT) - int(keyCode == RIGHT),
   int(keyCode == UP) - int(keyCode == DOWN));
 
-  for(Wall wall: level) {
+  for(Wall wall: niveau) {
     wall.move(mouvement);
   }
 }
@@ -28,7 +30,7 @@ void draw() {
 
   joueur.draw();
 
-  for(Wall wall: level) {
+  for(Wall wall: niveau) {
     wall.draw();
   }
 }
