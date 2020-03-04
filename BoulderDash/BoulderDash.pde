@@ -28,9 +28,8 @@ void draw() {
   translate(width/2, height/2);
   background(1);
 
-  joueur.draw();
-
   for(Wall wall: niveau) {
     wall.draw();
   }
+  joueur.draw();
 }
