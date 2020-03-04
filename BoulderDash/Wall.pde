@@ -1,10 +1,7 @@
 class Wall extends Tile {
-  Wall(Position initialPos, PImage image) {
-    position = new Position(initialPos.x, initialPos.y);
+  Wall(Vector initialPos, PImage image, Str) {
+    for(int i = 0 ; i < 
+    position = new Vector(initialPos.x, initialPos.y);
     sprite = image;
-  }
-
-  void move(Position movement) {
-    position = position.add(movement);
   }
 }
