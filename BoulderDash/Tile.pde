@@ -3,7 +3,9 @@ class Tile {
   Position position;
   int collisionLayer;
 
-  void draw() {
-    image(sprite, taille * position.x, taille * position.y, taille, taille);
+  void display() {
+    if (sprite != null) {
+      image(sprite, taille * position.x, taille * position.y, taille, taille);
+    }
   }
 }

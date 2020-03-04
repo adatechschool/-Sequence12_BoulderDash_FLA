@@ -29,7 +29,7 @@ void draw() {
   background(1);
 
   for(Wall wall: niveau) {
-    wall.draw();
+    wall.display();
   }
-  joueur.draw();
+  joueur.display();
 }
