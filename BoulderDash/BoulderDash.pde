@@ -20,8 +20,18 @@ void keyPressed() {
   int(keyCode == UP) - int(keyCode == DOWN));
 
   for(Wall wall: niveau) {
+    Wall wallTemporary = new Wall(new Position(wall.position.x + mouvement.x ,wall.position.y + mouvement.y ), null); 
+    CollisionChecker collision = new CollisionChecker();
+    if(collision.isColliding(wallTemporary, joueur)) {
+      mouvement = new Position(0, 0);
+      println("toucher");
+      }
+  } 
+
+ for(Wall wall: niveau) {
     wall.move(mouvement);
   }
+
 }
 
 void draw() {

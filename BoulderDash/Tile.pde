@@ -1,7 +1,7 @@
 class Tile {
   PImage sprite;
   Position position;
-  int collisionLayer;
+  int collisionLayer = 0;
 
   void display() {
     if (sprite != null) {
