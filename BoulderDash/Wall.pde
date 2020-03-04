@@ -5,7 +5,6 @@ class Wall extends Tile {
   }
 
   void move(Position movement) {
-    position.x += movement.x;
-    position.y += movement.y;
+    position = position.add(movement);
   }
 }
