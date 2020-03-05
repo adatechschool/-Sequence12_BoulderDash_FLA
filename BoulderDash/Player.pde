@@ -4,6 +4,7 @@ class Player extends Tile {
     sprite = image;
   }
   
-  void move(Vector vector){};
-  void move(int x, int y){};
+  void move(Vector vector) {
+    position = position.add(vector);
+  }
 }

@@ -5,21 +5,21 @@ int taille = 60;
 
 void setup() {
   joueur = new Player(loadImage("assets/bulbizarre.png"));
-  mur = new Wall(4, 4, loadImage("assets/wall_balec.png"));
+  mur = new Wall(new Vector(4, 4), loadImage("assets/wall_balec.png"));
 
   size(800, 800);
 }
 
 void keyPressed() {
   Vector mouvement = new Vector(
-    int(keyCode == LEFT) - int(keyCode == RIGHT), 
-    int(keyCode == UP) - int(keyCode == DOWN));
+    int(keyCode == RIGHT) - int(keyCode == LEFT), 
+    int(keyCode == DOWN) - int(keyCode == UP));
 
-  mur.move(mouvement);
+  joueur.move(mouvement);
 }
 
 void draw() {
-  translate(width/2, height/2);
+  translate(width/2 - joueur.position.x * taille, height/2 - joueur.position.y * taille);
   background(1);
 
   mur.display();
