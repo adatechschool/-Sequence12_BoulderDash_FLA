@@ -5,4 +5,5 @@ class Player extends Tile {
   }
   
   void move(Vector vector){};
+  void move(int x, int y){};
 }
