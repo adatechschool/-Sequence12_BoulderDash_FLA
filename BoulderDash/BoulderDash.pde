@@ -1,5 +1,4 @@
 Player joueur;
-CollisionChecker collision = new CollisionChecker();
 
 int taille = 60;
 

@@ -1,4 +1,4 @@
 interface Collision {
-  void move_and_collide(Vector vector);
+  void move(Vector vector);
   void display();
 }

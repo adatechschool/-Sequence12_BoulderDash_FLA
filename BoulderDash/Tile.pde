@@ -2,7 +2,7 @@ class Tile implements Collision {
   PImage sprite;
   Vector position;
 
-  void move_and_collide(Vector vector) {
+  void move(Vector vector) {
     position = position.add(vector);
   }
   

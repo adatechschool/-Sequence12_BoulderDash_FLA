@@ -4,5 +4,5 @@ class Player extends Tile {
     sprite = image;
   }
   
-  void move_and_collide(Vector vector){};
+  void move(Vector vector){};
 }
