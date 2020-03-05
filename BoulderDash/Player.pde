@@ -4,7 +4,7 @@ class Player extends Tile {
     sprite = image;
   }
   
-  void move_and_collide(Vector vector, Tile[] tiles) {
+  void move_and_collide(Tile[] tiles, Vector vector) {
     for (Tile collider: tiles) {
       if (position.add(vector).equals(collider.position)) {
         return;

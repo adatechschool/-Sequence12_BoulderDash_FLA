@@ -24,8 +24,7 @@ void draw() {
 }
 
 void keyPressed() {
-  Vector mouvement = new Vector(
+  joueur.move_and_collide(niveau, new Vector(
     int(keyCode == RIGHT) - int(keyCode == LEFT), 
-    int(keyCode == DOWN) - int(keyCode == UP));
-  joueur.move_and_collide(new int, niveau);
+    int(keyCode == DOWN) - int(keyCode == UP)));
 }
