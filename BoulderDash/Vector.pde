@@ -13,4 +13,8 @@ class Vector {
   Vector add(Vector vector) {
     return new Vector(x + vector.x, y + vector.y);
   }
+
+  Vector mult(int force) {
+    return new Vector(x * force, y * force);
+  }
 }

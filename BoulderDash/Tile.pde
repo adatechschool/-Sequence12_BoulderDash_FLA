@@ -1,4 +1,4 @@
-class Tile implements Collision {
+class Tile implements Physics {
   PImage sprite;
   Vector position;
 
